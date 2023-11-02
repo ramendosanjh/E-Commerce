@@ -1,12 +1,32 @@
 const { Model, DataTypes } = require('sequelize');
-
 const sequelize = require('../config/connection');
 
-class ProductTag extends Model {}
+class Product extends Model {}
 
-ProductTag.init(
+Product.init(
   {
-    // define columns
+    // Define columns (attributes)
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    product_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'product',
+        key: 'id',
+        unique: false
+      }
+    },
+    tag_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'tag',
+        key: 'id',
+        unique: false
+      }
+    },  
   },
   {
     sequelize,
