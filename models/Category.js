@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class ProductTag extends Model {}
+class Category extends Model {}
 
 Category.init(
   {
@@ -12,7 +12,7 @@ Category.init(
       allowNull: false,
 
     },
-    Category_name: {
+    category_name: {
       type: DataTypes.STRING,
       allowNull: false,
 
